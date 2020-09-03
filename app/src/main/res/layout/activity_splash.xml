@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_light"
+    android:background="@color/colorPrimary"
     tools:context=".SplashActivity">
 
     <ImageView
@@ -31,7 +31,7 @@
         android:fontFamily="@font/audiowide"
         android:text="IPVapp"
         android:textAlignment="center"
-        android:textColor="@android:color/holo_orange_light"
+        android:textColor="@color/statusBarTextColor"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
