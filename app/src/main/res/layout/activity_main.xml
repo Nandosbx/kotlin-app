@@ -30,7 +30,9 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:background="?attr/selectableItemBackground"
-        android:textAlignment="inherit"
+        android:backgroundTint="@color/colorSecondary"
+        android:spinnerMode="dialog"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -42,7 +44,7 @@
         android:layout_marginTop="40dp"
         android:text="SELECIONE O SEU ESTADO"
         android:textAlignment="center"
-        android:textColor="@color/statusBarTextColor"
+        android:textColor="@android:color/background_dark"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,7 +61,7 @@
         android:layout_marginEnd="20dp"
         android:text="INSIRA O VALOR DO SEU CARRO"
         android:textAlignment="center"
-        android:textColor="@color/statusBarTextColor"
+        android:textColor="@android:color/background_dark"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -75,7 +77,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:background="?attr/editTextBackground"
-        android:backgroundTint="@color/statusBarTextColor"
+        android:backgroundTint="@color/colorSecondary"
         android:ems="10"
         android:hint="VALOR"
         android:inputType="textPersonName"
@@ -96,21 +98,27 @@
         android:text="CALCULAR"
         android:textAlignment="center"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextMainValor" />
 
-    <TextView
-        android:id="@+id/textResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@android:color/background_dark"
-        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnMainCalcular" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textResult"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:textColor="@android:color/background_dark"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnMainCalcular"
+        app:layout_constraintVertical_bias="0.05" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
