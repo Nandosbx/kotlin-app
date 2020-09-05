@@ -9,8 +9,9 @@
 
     <style name="spinner_style" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:textAlignment">center</item>
+        <item name="android:spinnerDropDownItemStyle">@color/colorPrimary</item>
     </style>
 
 </resources>

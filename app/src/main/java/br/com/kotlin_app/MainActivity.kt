@@ -48,6 +48,7 @@ class MainActivity : AppCompatActivity() {
 //            "São Paulo",
 //            "Sergipe",
 //            "Tocantins"
+//        )
 
 
         val spinner: Spinner = findViewById(R.id.spnMainEstados)
@@ -55,7 +56,8 @@ class MainActivity : AppCompatActivity() {
         ArrayAdapter.createFromResource(
             this,
             R.array.states,
-            android.R.layout.simple_spinner_dropdown_item
+            android.R.layout.simple_spinner_item
+
         ).also { adapter ->
             // Specify the layout to use when the list of choices appears
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -74,7 +76,7 @@ class MainActivity : AppCompatActivity() {
             if (valor.isEmpty() || estados == estadosArray[0]) {
 
                 //Apresentando um toast de erro ao usuário
-                Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_LONG).show()
+                Toast.makeText(this@MainActivity, "Preencha todos os campos", Toast.LENGTH_SHORT).show()
 
             }
             //TAX 2%
@@ -130,9 +132,11 @@ class MainActivity : AppCompatActivity() {
                 textResult.text = "$message $ipva, o valor da taxa é de $tax."
 
             }
+
             //Esconder o soft keyboard quando o botão for clicado
             val inputManager: InputMethodManager =getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             inputManager.hideSoftInputFromWindow(currentFocus?.windowToken, InputMethodManager.SHOW_FORCED)
         }
+
     }
 }

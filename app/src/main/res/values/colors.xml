@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorSecondary">#6200EE</color>
-    <color name="colorSecondaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
-    <color name="statusBarTextColor">#ffbb33</color>
+
+    <color name="statusBarTextColor">#067BC2</color>
+    <color name="colorAccent">#067BC2</color>
+
+
+    <color name="colorPrimary">#067BC2</color>
+    <color name="colorPrimaryLight">#84BCDA</color>
+    <color name="colorSecondary">#ECC30B</color>
+    <color name="colorSecondaryDark">#F37748</color>
+    <color name="colorTertiary">#D56062</color>
 </resources>
