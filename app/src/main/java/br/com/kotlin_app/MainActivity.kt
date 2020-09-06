@@ -1,6 +1,7 @@
 package br.com.kotlin_app
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.view.View
@@ -13,7 +14,6 @@ import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -68,20 +68,31 @@ class MainActivity : AppCompatActivity() {
         btnMainCalcular.setOnClickListener {
             //Capturar os dados digitados
             val estados = spnMainEstados.selectedItem
-            val valor = editTextMainValor.text.trim()
-            val number: Double = valor.toString().toDouble()
+            val valor = editTextMainValor.text.toString().trim()
+            val number: Double = valor.toDouble()
             val message = "O valor do IPVA  no estado $estados para pagar é de: R$"
 
+
             //Validação dos campos
-            if (valor.isEmpty() || estados == estadosArray[0]) {
+            if (valor.isEmpty()) {
 
                 //Apresentando um toast de erro ao usuário
-                Toast.makeText(this@MainActivity, "Preencha todos os campos", Toast.LENGTH_SHORT).show()
+                val toast = Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT)
+                toast.show()
+                textResult.text = "Não foi possível"
+
+            } else if (estados == estadosArray[0]) {
+
+                //Apresentando um toast de erro ao usuário
+                Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT)
+                    .show()
+                textResult.text = "Não foi possível"
 
             }
             //TAX 2%
             else if (estados == "Acre (AC)" || estados == "Tocantins (TO)" || estados == "Santa Catarina (SC)"
-                || estados == "Sergipe (SE)" || estados == "Paraíba (PB)" ) {
+                || estados == "Sergipe (SE)" || estados == "Paraíba (PB)"
+            ) {
 
                 val tax = 0.02
                 val ipva: Double = number * tax
@@ -92,9 +103,10 @@ class MainActivity : AppCompatActivity() {
             //TAX 2,5%
             else if (estados == "Alagoas (AL)" || estados == "Pernambuco (PE)"
                 || estados == "Rio Grande do Norte (RN)" || estados == "Ceará (CE)"
-                ||  estados == "Piauí (PI)" || estados == "Maranhão (MA)"
+                || estados == "Piauí (PI)" || estados == "Maranhão (MA)"
                 || estados == "Bahia (BA)" || estados == "Pará (PA)"
-                || estados == "Mato Grosso do Sul (MS)" || estados == "Goiás (GO)") {
+                || estados == "Mato Grosso do Sul (MS)" || estados == "Goiás (GO)"
+            ) {
 
                 val tax = 0.025
                 val ipva: Double = number * tax
@@ -106,7 +118,8 @@ class MainActivity : AppCompatActivity() {
             else if (estados == "Rio Grande do Sul (RS)" || estados == "São Paulo (SP)"
                 || estados == "Amazonas (AM)" || estados == "Amapá (AP)"
                 || estados == "Roraima (RR)" || estados == "Rondônia (RO)"
-                || estados == "Mato Grosso (MT)" || estados == "Distrito Federal (DF)") {
+                || estados == "Mato Grosso (MT)" || estados == "Distrito Federal (DF)"
+            ) {
 
                 val tax = 0.03
                 val ipva: Double = number * tax
@@ -133,10 +146,18 @@ class MainActivity : AppCompatActivity() {
 
             }
 
-            //Esconder o soft keyboard quando o botão for clicado
-            val inputManager: InputMethodManager =getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            inputManager.hideSoftInputFromWindow(currentFocus?.windowToken, InputMethodManager.SHOW_FORCED)
+            fun hideKeyboard(activity: Activity)
+            {
+                val view = activity.findViewById<View>(android.R.id.content)
+                if (view != null)
+            {
+                val imm = activity.getSystemService(Context.INPUT_METHOD_SERVICE)
+                        as InputMethodManager
+                imm.hideSoftInputFromWindow(view.windowToken, 0)
+            }
+            }
         }
 
     }
 }
+
